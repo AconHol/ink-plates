@@ -886,6 +886,7 @@
     arrow: { from: 'translate(-160px,-10px)', dur: .8, delay: .28 },
     moto: { from: 'translate(-40px,190px) scale(.96)', dur: 1.0, delay: .12 },
     gear: { from: 'translate(58px,150px) rotate(2.5deg) scale(.96)', dur: 1.0, delay: .10 },
+    patch: { from: 'translate(58px,150px) rotate(2.5deg) scale(.96)', dur: 1.0, delay: .10 },
     aura: { from: 'scale(1.32) rotate(-5deg)', dur: .88, delay: .24 },
     arrow: { from: 'translate(-420px,-150px) rotate(-12deg)', dur: 1.45, delay: .32 }
   };
@@ -1193,8 +1194,43 @@
       { duration: 260, delay: 2320, easing: EASE.calm, fill: 'both' });
   }
 
+  function arrowStencilFly(scene) {
+    if (!scene || !scene.root || REDUCED) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'fx-svg arrow-stencil');
+    svg.setAttribute('viewBox', '0 0 1024 1536');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.style.cssText = 'position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:visible';
+    const B = '#234EA4', C = '#F4E4CE', K = '#0E0E0E';
+    svg.innerHTML = '<g>' +
+      '<rect x="330" y="620" width="548" height="26" transform="rotate(-1.8 604 633)" fill="' + K + '"/>' +
+      '<rect x="334" y="626" width="540" height="14" transform="rotate(-1.8 604 633)" fill="' + C + '"/>' +
+      '<polygon points="948,622 868,586 884,660" fill="' + B + '"/>' +
+      '<polygon points="948,622 868,586 884,660" fill="none" stroke="' + K + '" stroke-width="5"/>' +
+      '<polygon points="352,600 300,588 312,634" fill="' + C + '"/>' +
+      '<polygon points="352,664 300,676 312,630" fill="' + C + '"/>' +
+      '</g>';
+    scene.root.appendChild(svg);
+    const total = Math.max(1200, (scene.printEnd || 1.5) * 1000);
+    anim(svg, [{ transform: 'translate(-58%, -12%) rotate(-9deg)', opacity: 0 },
+               { transform: 'translate(-10%, -2%) rotate(-2deg)', opacity: 1, offset: .55 },
+               { transform: 'translate(0,0) rotate(0deg)', opacity: 1 }],
+      { duration: 1250, delay: total * .30, easing: EASE.drift, fill: 'both' });
+    // land, then wipe left-to-right to uncover the printed arrow
+    anim(svg, [{ clipPath: 'inset(0% 0% 0% 0%)', easing: EASE.drift },
+               { clipPath: 'inset(0% 0% 0% 100%)' }],
+      { duration: 420, delay: total * .30 + 1320, easing: 'linear', fill: 'both' });
+    setTimeout(() => { try { svg.remove(); } catch (e) { } }, total * .30 + 1820);
+  }
+
   function settleScene(scene, plate) {
     dropObjClips(scene);
+    if (scene.objRoot) {
+      scene.objRoot.querySelectorAll('.scene-obj[data-obj="patch"]').forEach((el) => {
+        anim(el, [{ opacity: 1 }, { opacity: 0 }], { duration: 260, easing: EASE.calm, fill: 'both' });
+      });
+    }
 
     if (!scene.titleAnimated) {
       startTitleAnim(scene, plate, 1);
