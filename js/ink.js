@@ -1029,7 +1029,6 @@
       fx: 'aemeath',
       print: { start: .30, gap: .12, spread: .48, dur: .64, jitter: .06, push: 2.2, alt: true,
                wave: { kind: 'radial', cx: .55, cy: .5 } },
-      guide: { kind: 'radial', start: .2, end: 1.66 },
       erase: { kind: 'radial', cx: .55, cy: .5, flip: true },
       enter: { from: 'scale(1.03) rotate(1.1deg)' },
       exit: { dx: 2.6, dy: -4.2, rot: .9, scale: .982 }
