@@ -964,6 +964,7 @@
 
   function buildBgFx(scene, plate) {
     const id = plate.id;
+    if (id === 'bronya') return;  // no loose particles after the entrance
     const B = '#2f6cff', C = '#f2e4d1', K = '#0a0a0c';
     let inner = '';
     if (id === 'luna') {
