@@ -589,6 +589,7 @@
       this.fxRoot = svg;
       this.root.appendChild(svg);
       this.fx = { svg: svg, owned: [] };
+      if (recipe.fxAlpha) svg.style.opacity = recipe.fxAlpha;
       builder(this, speed);
     }
   }
@@ -1027,6 +1028,7 @@
     },
     aemeath: {
       fx: 'aemeath',
+      fxAlpha: .32,
       print: { start: .30, gap: .12, spread: .48, dur: .64, jitter: .06, push: 2.2, alt: true,
                wave: { kind: 'radial', cx: .55, cy: .5 } },
       guide: { kind: 'radial', start: .2, end: 1.66 },
