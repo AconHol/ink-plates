@@ -565,16 +565,7 @@
         '<path d="M760 380l70-24M760 404l70-24M760 428l70-24" stroke="' + B + '" stroke-width="2"/>' +
         '</g>';
     }
-    if (id === 'luna') {
-      return '<g fill="none" stroke-linejoin="round">' +
-        '<circle cx="512" cy="300" r="86" stroke="' + B + '" stroke-width="2.4"/>' +
-        '<circle cx="512" cy="300" r="34" stroke="' + C + '" stroke-width="2"/>' +
-        '<path d="M512 196v-40M512 404v40M408 300h-40M616 300h40" stroke="' + B + '" stroke-width="2.4"/>' +
-        '<path d="M240 940 Q512 520 820 960" stroke="' + B + '" stroke-width="2" stroke-dasharray="8 14" fill="none" opacity=".9"/>' +
-        '<line x1="820" y1="960" x2="880" y2="1016" stroke="' + B + '" stroke-width="2"/>' +
-        '<path d="M240 1290h60v-70h44v40h50v-96h44v70h60v-40h46v96h60" stroke="' + B + '" stroke-width="2" fill="none" opacity=".85"/>' +
-        '</g>';
-    }
+    if (id === 'luna') { return ''; }
     if (id === 'kiana') {
       return '<g fill="none" stroke-linejoin="round">' + kianaSwordGroup(true) +
         '<circle cx="214" cy="1338" r="96" stroke="' + B + '" stroke-width="2" fill="none" opacity=".55"/>' +

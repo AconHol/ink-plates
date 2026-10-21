@@ -1044,10 +1044,8 @@
       exit: { dx: -5.2, dy: .6, rot: -.4, scale: .985 }
     },
     luna: {
-      fx: 'luna',
       print: { start: .30, gap: .12, spread: .44, dur: .64, jitter: .05, push: 2.4, alt: true,
                wave: { kind: 'linear', angle: -90 } },
-      guide: { kind: 'linear', angle: -90, start: .26, end: 1.6 },
       erase: { kind: 'linear', angle: 90 },
       enter: { from: 'translate3d(0,4.2%,0)' },
       exit: { dx: 0, dy: 4.6, rot: .7, scale: .982 }
