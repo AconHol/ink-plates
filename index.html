@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<title>INK／PLATE — SIX GRAPHIC PLATES</title>
+<meta name="description" content="INK / PLATE - six graphic plates, reconstructed as pure SVG vector ink separations and printed onto paper with a two-colour press choreography.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ecdfc9'/%3E%3Ccircle cx='44' cy='22' r='14' fill='%230a3a9e'/%3E%3Cpath d='M0 64 L30 24 L44 64 Z' fill='%230a0a0c'/%3E%3Crect x='8' y='8' width='10' height='2' fill='%230a0a0c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ============ ambient paper / ink textures (post-process) ============ -->
+<div class="tex" aria-hidden="true">
+  <div class="tex-mottle"></div>
+  <div class="tex-mottle tex-mottle-light"></div>
+  <div class="tex-fibre"></div>
+  <div class="tex-grain"></div>
+  <div class="tex-grain tex-grain-light"></div>
+  <div class="tex-dust"></div>
+  <div class="tex-vignette"></div>
+</div>
+
+<canvas id="ambient" class="ambient" aria-hidden="true"></canvas>
+<div class="backdrop" aria-hidden="true">
+  <div class="bd-ring bd-ring-a"></div>
+  <div class="bd-ring bd-ring-b"></div>
+  <div class="bd-slash"></div>
+  <div class="bd-grid"></div>
+</div>
+
+<!-- ============ page ============ -->
+<div class="frame" id="frame">
+  <div class="frame-line" aria-hidden="true"></div>
+  <div class="rail-right" aria-hidden="true">REGISTRATION — SIX PLATES / 02 INKS — 1024 × 1536</div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="INK PLATE home">
+      <svg class="brand-mark" viewBox="0 0 34 34" aria-hidden="true">
+        <rect x="1" y="1" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M7 25 L17 8 L27 25 Z" fill="currentColor"/>
+        <rect x="11" y="25" width="12" height="2" fill="currentColor"/>
+      </svg>
+      <span class="brand-name">INK<i>／</i>PLATE</span>
+      <span class="brand-sub">GRAPHIC SERIES<br>VOL. 02</span>
+    </a>
+    <div class="topbar-right">
+      <span class="top-note" id="inkNote">TWO INK ／ VECTOR PLATE</span>
+      <button class="auto-toggle" id="autoToggle" type="button" aria-pressed="true">
+        <span class="auto-dot" aria-hidden="true"></span><span>AUTO</span>
+      </button>
+      <div class="top-counter"><span id="topIdx">01</span><i>／</i><span>06</span></div>
+    </div>
+  </header>
+
+  <main class="viewer">
+    <aside class="rail" aria-hidden="true">
+      <div class="rail-vert">SIX GRAPHIC PLATES — HONKAI · WITHERING · DELTA</div>
+      <div class="rail-mid">
+        <div class="rail-chip">02 INKS<br><em>VECTOR</em></div>
+        <div class="rail-rule"></div>
+        <div class="rail-small">1024 × 1536<br>2 : 3 PLATE</div>
+      </div>
+      <div class="rail-index" id="railIndex">01</div>
+    </aside>
+
+    <section class="stagewrap" id="stagewrap" aria-label="poster viewer">
+      <div class="stage" id="stage">
+        <div class="plate" id="plate">
+          <div class="paper" id="paper"></div>
+          <div class="scene-host" id="sceneHost"></div>
+          <div class="plate-grain" aria-hidden="true"></div>
+          <div class="plate-flash" id="plateFlash"></div>
+          <div class="plate-sheen" aria-hidden="true"></div>
+          <div class="plate-inkedge" aria-hidden="true"></div>
+          <div class="marks" aria-hidden="true">
+            <span class="mark tl"></span><span class="mark tr"></span>
+            <span class="mark bl"></span><span class="mark br"></span>
+          </div>
+        </div>
+        <div class="stage-caption">
+          <span class="cap-left" id="capLeft">PLATE 01 — ELYSIA / HUMAN EGO</span>
+          <span class="cap-right" id="capRight">VECTOR INK · 1024 × 1536</span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="info" id="info" aria-live="polite">
+      <div class="info-kicker">
+        <span class="kicker-tag" id="infoTag">HONKAI IMPACT</span>
+        <span class="kicker-rule"></span>
+        <span class="kicker-plate" id="infoPlate">PLATE 01</span>
+      </div>
+      <h1 class="info-name" id="infoName"><span class="ln" data-text="ELYSIA">ELYSIA</span></h1>
+      <div class="info-sub" id="infoSub"><span>HUMAN EGO</span></div>
+      <p class="info-desc" id="infoDesc">The bow is drawn from memory. Every petal is an arrow, every arrow a promise.</p>
+      <p class="info-cn" id="infoCn">以记忆为弦，以花为箭。</p>
+      <dl class="spec" id="spec"></dl>
+      <div class="info-foot">
+        <span class="info-badge">100% SVG</span>
+        <span class="info-badge info-badge-o">NO RASTER</span>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="dock">
+    <div class="dock-arrows">
+      <button class="arrow" id="prevBtn" type="button" aria-label="Previous plate">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+      <button class="arrow" id="nextBtn" type="button" aria-label="Next plate">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+    <ol class="plate-list" id="plateList"></ol>
+    <div class="dock-hint"><span>← →</span>NAVIGATE<span>R</span>REPLAY<span>DRAG</span>SWITCH</div>
+  </footer>
+</div>
+
+<!-- ============ boot / loading ============ -->
+<div class="boot" id="boot" role="status" aria-label="loading the plate series">
+  <div class="boot-sheet" id="bootSheet">
+    <div class="boot-band" aria-hidden="true"></div>
+    <div class="boot-disc" aria-hidden="true"></div>
+    <div class="boot-grid" aria-hidden="true">
+      <span class="breg tl"></span><span class="breg tr"></span>
+      <span class="breg bl"></span><span class="breg br"></span>
+    </div>
+    <div class="boot-copy">
+      <div class="boot-eyebrow" id="bootEyebrow"><span>INK</span><i>／</i><span>PLATE</span><i>／</i><span>VOL. 02</span></div>
+      <div class="boot-title" id="bootTitle">
+        <div class="boot-line"><span class="boot-word" data-word="SIX">SIX</span></div>
+        <div class="boot-line boot-line-b"><span class="boot-word" data-word="PLATES">PLATES</span></div>
+      </div>
+      <div class="boot-sub" id="bootSub">A TWO-COLOUR VECTOR POSTER SERIES<br>SIX PLATES ／ 02 INKS ／ ONE PRESS</div>
+      <div class="boot-swatches" id="bootSwatches" aria-hidden="true"></div>
+      <div class="boot-track"><div class="boot-bar" id="bootBar"></div></div>
+      <div class="boot-status"><span id="bootStatus">SPOOLING PAPER</span><span class="boot-dots" id="bootDots"><i></i><i></i><i></i></span></div>
+    </div>
+    <div class="boot-side">
+      <div class="boot-vertical">REGISTRATION ／ REGISTRATION ／ REGISTRATION</div>
+      <div class="boot-pct" id="bootPct">00</div>
+      <div class="boot-side-note">PLATES<br>READY</div>
+    </div>
+    <div class="boot-foot">
+      <span>ELYSIA · AEMEATH · BRONYA · LUNA · KIANA · VYRON</span>
+      <span class="boot-foot-r">HONKAI IMPACT ／ WITHERING WAVES ／ DELTA FORCE</span>
+    </div>
+  </div>
+</div>
+
+<script src="js/plates.js"></script>
+<script src="js/ink.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
