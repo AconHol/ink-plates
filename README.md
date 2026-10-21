@@ -333,3 +333,26 @@ KIANA 巨剑、ELYSIA 弓、BRONYA 前后车轮、LUNA 天际线、VYRON 地球+
 
 > 说明：物件层用区域遮罩自动拆分，入场约 1 秒内轮廓里会带少量邻近画面；落定后恢复完整原图。
 > 如果要求「入场过程里也只有物件本身、不带任何邻近画面」，需要对六个物件逐个手工勾轮廓重绘。
+
+
+---
+
+## Release v1.0.0
+
+- 静态站点，无需构建：直接用浏览器打开 `index.html`（`file://` 可用），或用任意静态服务器托管。
+- 六张海报：ELYSIA / AEMEATH / BRONYA / LUNA / KIANA / VYRON。
+- 100% 矢量画面 + 印刷式入场动画（canvas 墨版逐步显影，落定后为纯 SVG）。
+- 操作：`← →` 切换、`R` 重播、`T` 切换标题动效、`A` 自动播放；移动端支持滑动。
+- 调试参数见上面的「调试参数」小节。
+
+### GitHub Pages
+
+仓库已带 `.github/workflows/pages.yml`：在仓库 **Settings → Pages** 里把 Source 设为 **GitHub Actions**，
+之后每次 push 会自动部署。
+
+### License
+
+代码以 **MIT** 许可开源（见 `LICENSE`）。
+
+海报中的角色与画面版权归原权利方所有（miHoYo / Kuro Games / Team Jade 等），
+本仓库仅作技术演示用途；如需商用请自行取得授权。
