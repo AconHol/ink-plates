@@ -1,3 +1,7 @@
+
+/* bundled OFL fonts so the display/mono faces work on mobile (Impact/Cascadia are desktop-only) */
+@font-face{font-family:"Anton";src:url("../assets/fonts/anton.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../assets/fonts/jetbrains-mono.woff2") format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
 /* =========================================================
    INK／PLATE — six graphic plates, drawn in SVG, printed
    ========================================================= */
@@ -14,9 +18,9 @@
   --line-soft:rgba(242,228,209,.09);
   --txt-dim:rgba(242,228,209,.52);
   --txt-faint:rgba(242,228,209,.32);
-  --display:Impact,"Haettenschweiler","Arial Narrow Bold","Franklin Gothic Heavy",sans-serif;
+  --display:"Anton",Impact,"Haettenschweiler","Arial Narrow Bold","Franklin Gothic Heavy",sans-serif;
   --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;
-  --mono:"Cascadia Mono","Consolas",monospace;
+  --mono:"JetBrains Mono","Cascadia Mono","Consolas",monospace;
   --ease-out:cubic-bezier(.16,1,.3,1);
   --ease-in-out:cubic-bezier(.76,0,.24,1);
   --ease-in:cubic-bezier(.7,0,.84,0);
@@ -839,3 +843,8 @@ body.no-tex .ambient{display:none}
 body.no-transitions *{transition:none!important}
 body.no-transitions .frame{opacity:1!important}
 
+
+/* keep particle layers inside the canvas: nothing may spill onto the page */
+.scene-host, .fx-host { overflow: hidden; }
+.scene > svg.bg-fx, .scene > svg.fx-svg { overflow: hidden; }
+.scene-host.clipped, .fx-host.clipped { overflow: hidden; }
