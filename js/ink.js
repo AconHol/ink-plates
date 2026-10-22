@@ -1020,7 +1020,7 @@
   /* ---------------- recipes ---------------- */
   const RECIPES = {
     elysia: {
-      print: { start: .30, gap: .02, spread: .48, dur: .82, jitter: .05, push: 2.6, alt: true,
+      print: { start: .30, gap: .12, spread: .48, dur: .64, jitter: .05, push: 2.6, alt: true,
                wave: { kind: 'linear', angle: -34 } },
       erase: { kind: 'linear', angle: 146 },
       enter: { from: 'translate3d(-2.8%,2.6%,0) rotate(-1deg)' },

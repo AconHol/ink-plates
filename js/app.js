@@ -997,11 +997,7 @@
         petals += '<polygon class="epetal" data-i="' + i + '" points="' + dia(x, y, 5 + (i % 3) * 3, i * 36) +
           '" fill="' + (i % 2 ? B : C) + '" opacity=".75"/>';
       }
-      inner = petals +
-        '<path d="M70 668 L860 742" stroke="' + C + '" stroke-width="3" fill="none"/>' +
-        '<path d="M70 668 L860 742" stroke="' + B + '" stroke-width="1" fill="none" opacity=".8"/>' +
-        '<polygon points="880,746 846,728 846,762" fill="' + B + '"/>' +
-        '<path d="M96 668l-26-18M96 668l-26 18M126 672l-22-15M126 672l-22 15" stroke="' + B + '" stroke-width="2" fill="none"/>';
+      inner = petals;
     } else if (id === 'kiana') {
       let em = '';
       for (let i = 0; i < 4; i++) {
