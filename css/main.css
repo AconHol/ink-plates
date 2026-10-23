@@ -1,4 +1,7 @@
 
+@font-face{font-family:"Impact";src:url("../assets/fonts/impact.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Cascadia Mono";src:url("../assets/fonts/cascadia-mono.ttf") format("truetype");font-weight:400 700;font-style:normal;font-display:swap}
+
 /* bundled OFL fonts so the display/mono faces work on mobile (Impact/Cascadia are desktop-only) */
 @font-face{font-family:"Anton";src:url("../assets/fonts/anton.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url("../assets/fonts/jetbrains-mono.woff2") format("woff2");font-weight:400 500;font-style:normal;font-display:swap}
@@ -18,9 +21,9 @@
   --line-soft:rgba(242,228,209,.09);
   --txt-dim:rgba(242,228,209,.52);
   --txt-faint:rgba(242,228,209,.32);
-  --display:"Anton",Impact,"Haettenschweiler","Arial Narrow Bold","Franklin Gothic Heavy",sans-serif;
+  --display:"Impact","Anton","Haettenschweiler","Arial Narrow Bold","Franklin Gothic Heavy",sans-serif;
   --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;
-  --mono:"JetBrains Mono","Cascadia Mono","Consolas",monospace;
+  --mono:"Cascadia Mono","JetBrains Mono","Consolas",monospace;
   --ease-out:cubic-bezier(.16,1,.3,1);
   --ease-in-out:cubic-bezier(.76,0,.24,1);
   --ease-in:cubic-bezier(.7,0,.84,0);
@@ -467,7 +470,7 @@ ol,ul,dl,dd{margin:0;padding:0;list-style:none}
   text-shadow:.045em .05em 0 rgba(20,58,150,.75), .09em .1em 0 rgba(10,10,12,.22);
   white-space:nowrap;
 }
-.info-name .ln{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.04em}
+.info-name .ln{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.14em 0 .04em;margin-top:-.14em}
 .info-name .ln > span{display:inline-block;will-change:transform}
 .info-sub{
   margin-top:12px;
@@ -664,7 +667,7 @@ ol,ul,dl,dd{margin:0;padding:0;list-style:none}
   color:var(--ink);
   white-space:nowrap;
 }
-.boot-title .boot-line{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.14em}
+.boot-title .boot-line{display:block;overflow:hidden;padding-top:.14em;margin-top:-.14em;padding-bottom:.16em;margin-bottom:-.14em}
 .boot-line-b{margin-left:.6em}
 .boot-word{display:inline-block;will-change:transform;text-shadow:6px 7px 0 var(--blue)}
 
